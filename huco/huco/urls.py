@@ -28,7 +28,8 @@ urlpatterns = [
     path('bankgateways/', az_bank_gateways_urls()),
     path('go_to_gateway_view/', go_to_gateway_view),
 	path('', include('store.views'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
 
 
 
