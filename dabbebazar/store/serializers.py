@@ -2,8 +2,7 @@ from .models.category import Category
 from rest_framework import serializers
 from .models.product import Product
 from .models.cart import CartItem
-
-
+from django.contrib.auth.models import User
 
 
 

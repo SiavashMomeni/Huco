@@ -1,6 +1,11 @@
 from django.db import models
+from django.conf import settings
+import os
+
 from .category import Category
 
+def images_path():
+    return os.path.join(settings.BASE_DIR / 'templates' , "images")
 
 class Product(models.Model):
 	name = models.CharField(max_length=60)
@@ -8,7 +13,7 @@ class Product(models.Model):
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
 	description = models.CharField(
 		max_length=250, default='', blank=True, null=True)
-	image = models.ImageField(upload_to='usploads/products/')
+	image = models.FilePathField(path=images_path)
 
 	@staticmethod
 	def get_products_by_id(ids):
